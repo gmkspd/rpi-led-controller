@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: led-ctl-each
+  name: led-ctl-each
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: led-ctl-each
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: led-ctl-each
+    spec:
+      containers:
+      - image: gmkspd/led-ctl-each-app
+        name: led-ctl-each-app
+        resources: {}
+        securityContext:
+          privileged: true
+          runAsUser: 0
+      nodeSelector:
+        devType: rpi
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: led-ctl-each
+  name: led-ctl-each-svc
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: led-ctl-each
+  type: LoadBalancer
+status:
+  loadBalancer: {}
