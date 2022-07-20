@@ -1,0 +1,40 @@
+<html>
+	<head> 
+	<title>LED CONTROLLER</title>	
+	<meta name="viewport" content="width=device-width initial-scale=1">
+	<style>
+		.content {
+		  max-width: 550px;
+		  margin: auto;
+		  text-align: center;
+		  margin-top: 270px;
+		}
+	</style>
+	</head> 
+	<body>
+		<div class="content">
+		<h1>쿠버네티스에서 라즈베리파이 LED 제어하기</h1>
+        <hr>
+
+		<div style="padding-left:20px;">
+			<h3>LED 각각 제어</h3>
+				<p style="color: red;">
+					<b>빨간색 LED:</b>	
+					<a href="{{ url_for('LED_control', color='red', state=1) }}"><input type="button" value="ON" ></a>
+					<a href="{{ url_for('LED_control', color='red', state=0) }}"><input type="button" value="OFF"></a>
+				</p>
+				<p style="color: yellow;">
+					<b style="background-color: black;">노란색 LED:</b>	
+					<a href="{{ url_for('LED_control', color='yellow', state=1) }}"><input type="button" value="ON" ></a>
+					<a href="{{ url_for('LED_control', color='yellow', state=0) }}"><input type="button" value="OFF"></a>
+				</p>
+				<p style="color: blue;">
+					<b>파란색 LED: </b>	
+					<a href="{{ url_for('LED_control', color='blue', state=1) }}"><input type="button" value="ON" ></a>
+					<a href="{{ url_for('LED_control', color='blue', state=0) }}"><input type="button" value="OFF"></a>
+				</p>
+            <hr>
+		</div>
+		</div>
+	</body>
+</html>
